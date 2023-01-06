@@ -2,7 +2,6 @@ import React, {FC, useEffect} from 'react';
 import {
   SafeAreaView,
   View,
-  Image,
   TouchableWithoutFeedback,
   Keyboard,
   ScrollView,
