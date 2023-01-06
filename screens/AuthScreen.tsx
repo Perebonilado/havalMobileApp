@@ -5,17 +5,21 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import SigninForm from '../modules/Auth/SigninForm';
 import SignupForm from '../modules/Auth/SignupForm';
 
-const AuthScreen: FC<NativeStackScreenProps<any, any>> = ({navigation, route}) => {
+const AuthScreen: FC<NativeStackScreenProps<any, any>> = ({
+  navigation,
+  route,
+}) => {
   const [isExistingUser, setIsExistingUser] = useState<boolean>(true);
+  const props = {
+    setIsExistingUser,
+    navigation,
+    route,
+  };
 
   return isExistingUser ? (
-    <SigninForm
-      setIsExistingUser={setIsExistingUser}
-      navigation={navigation}
-      route={route}
-    />
+    <SigninForm {...props}/>
   ) : (
-    <SignupForm />
+    <SignupForm {...props}/>
   );
 };
 
